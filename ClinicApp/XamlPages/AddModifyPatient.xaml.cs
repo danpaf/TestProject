@@ -71,7 +71,17 @@ namespace ClinicApp.XamlPages
                 if (dateOfBirth == null)
                 {
                     status = false;
-                    messageBuilder.Append("Дата рождения - обязательное поле для ввода.\n");
+                    messageBuilder.Append("Дата рождения - обязательное поле для ввода\n");
+                }
+                if(dateOfBirth > DateTime.Now)
+                {
+                    status = false;
+                    messageBuilder.Append("Дата рождения - не может быть будущей\n");
+                }
+                if (dateOfBirth < DateTime.MinValue)
+                {
+                    status = false;
+                    messageBuilder.Append("Дата рождения - ошибочная дата\n");
                 }
                 #endregion
                 #region Checking entered address
